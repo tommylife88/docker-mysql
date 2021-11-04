@@ -22,7 +22,7 @@ services:
     ports:
       - ${MYSQL_PORT}:3306
     volumes:
-      - ${DATA_HOST_PATH}/mysql-data:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
       - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
 
   phpmyadmin:
@@ -36,4 +36,8 @@ services:
     ports:
       - ${PMA_PORT}:80
     volumes:
-      - ${DATA_HOST_PATH}/phpmyadmin/sessions:/var/lib/mysql
+      - pma-data:/sessions
+
+volumes:
+  mysql-data:
+  pma-data:
