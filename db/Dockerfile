@@ -12,7 +12,7 @@ RUN apt-get update && \
 RUN sed -i -E 's/# (ja_JP.UTF-8)/\1/' /etc/locale.gen && locale-gen
 
 ENV LC_ALL ja_JP.UTF-8
-ENV TZ ${TIMEZONE}
+ENV TZ Asia/Tokyo
 
 COPY my.cnf /etc/mysql/conf.d/my.cnf
 RUN chmod 0444 /etc/mysql/conf.d/my.cnf
